@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * @author Sakshi Shetty
- * Purpose - To calculate the length and compare equality of lines using java equals method
+ * Purpose - To calculate the length and check whether one line is greater, equal or less than the other using java compareTo method
  */
 
 public class LineComparison {
@@ -11,7 +11,7 @@ public class LineComparison {
 		System.out.println("Welcome to Line Comparison Computation Program");
 		Scanner sc = new Scanner(System.in);
 		/**
-		 * Co-ordinates of first line 
+		 * Co-ordinates of first line
 		 * @param x1 - First co-ordinate of x-axis
 		 * @param x2 - Second co-ordinate of x-axis
 		 */
@@ -32,7 +32,7 @@ public class LineComparison {
 		System.out.println("The lenth of first line is :" + lengthOfLine1);
 
 		/**
-		 * Co-ordinates for second Line 
+		 * Co-ordinates for second Line
 		 * @param x3 - First co-ordinate of x-axis
 		 * @param x4 - Second co-ordinate of x-axis
 		 */
@@ -63,6 +63,17 @@ public class LineComparison {
 			System.out.println("Both lines are of same length");
 		else
 			System.out.println("Both the lines are of different length");
+
+		/**
+		 * Checking whether one line is greater, equal or less than the other using java compareTo method
+		 */
+
+		if (length1.compareTo(length2) > 0)
+			System.out.println("The length of first line is greater than that of second line");
+		else if (length1.compareTo(length2) < 0)
+			System.out.println("The length of first line is less than that of second line");
+		else
+			System.out.println("The length of first line is equal to lenth of second line");
 		sc.close();
 	}
 }
