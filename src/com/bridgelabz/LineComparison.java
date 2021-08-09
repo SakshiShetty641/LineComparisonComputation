@@ -1,79 +1,54 @@
 package com.bridgelabz;
 import java.util.Scanner;
-
 /**
  * @author Sakshi Shetty
- * Purpose - To calculate the length and check whether one line is greater, equal or less than the other using java compareTo method
+ * Purpose - Line Comparison and Computation using OOPS concept
  */
-
 public class LineComparison {
-	public static void main(String[] args) {
-		System.out.println("Welcome to Line Comparison Computation Program");
+
+	/*
+	 * To find the length of line using co-ordinates provided from user and
+	 * calculating the length using formula
+	 */
+	public double findLength(int x1, int x2, int y1, int y2) {
+		double lengthofline = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+		return lengthofline;
+	}
+
+	/* To compare the two lines */
+	public void checkEquality(double Line1, double Line2) {
+		if (Line1 > Line2)
+			System.out.println("Length of Line 1 is greater than the Length of Line 2");
+		else if (Line1 < Line2)
+			System.out.println("Length of Line 1 is lesser than the Length of Line 2");
+		else
+			System.out.println("Both the lines have equal length");
+	}
+
+	public static void main(String args[]) {
+
+		/* Taking user input as co-ordinates of Line1 and Line2 */
 		Scanner sc = new Scanner(System.in);
-		/**
-		 * Co-ordinates of first line
-		 * @param x1 - First co-ordinate of x-axis
-		 * @param x2 - Second co-ordinate of x-axis
-		 */
-		System.out.println("Enter the co-ordinates for x-axis of first line");
+		System.out.println("Enter the co-ordinates  for x-axis of First Line");
 		int x1 = sc.nextInt();
 		int x2 = sc.nextInt();
-		/**
-		 * @param y1 - First co-ordinate of y-axis
-		 * @param y2 - Second co-ordinate of y-axis
-		 */
-		System.out.println("Enter the co-ordinates for y-axis of first line");
+		System.out.println("Enter the co-ordinates for y-axis of First Line");
 		int y1 = sc.nextInt();
 		int y2 = sc.nextInt();
-		/**
-		 * Calculating the length between two points of first line using formula
-		 */
-		double lengthOfLine1 = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-		System.out.println("The lenth of first line is :" + lengthOfLine1);
-
-		/**
-		 * Co-ordinates for second Line
-		 * @param x3 - First co-ordinate of x-axis
-		 * @param x4 - Second co-ordinate of x-axis
-		 */
-		System.out.println("Enter the co-ordinates for x-axis of second line");
+		System.out.println("Enter the co-ordinates  for x-axis of second Line");
 		int x3 = sc.nextInt();
 		int x4 = sc.nextInt();
-		/**
-		 * @param y3 - First co-ordinate of y-axis
-		 * @param y4 - Second co-ordinate of y-axis
-		 */
-		System.out.println("Enter the co-ordinates for y-axis of second line");
+		System.out.println("Enter the co-ordinates for y-axis of second Line");
 		int y3 = sc.nextInt();
 		int y4 = sc.nextInt();
-		/**
-		 * Calculating the length between two points of second line using formula
-		 */
-		double lengthOfLine2 = Math.sqrt((x4 - x3) * (x4 - x3) + (y4 - y3) * (y4 - y3));
-		System.out.println("The lenth of second line is :" + lengthOfLine2);
 
-		/**
-		 * Checking whether both the lines are of same length or different length using java equals method
-		 */
-
-		Double length1 = Double.valueOf(lengthOfLine1);
-		Double length2 = Double.valueOf(lengthOfLine2);
-
-		if (length1.equals(length2))
-			System.out.println("Both lines are of same length");
-		else
-			System.out.println("Both the lines are of different length");
-
-		/**
-		 * Checking whether one line is greater, equal or less than the other using java compareTo method
-		 */
-
-		if (length1.compareTo(length2) > 0)
-			System.out.println("The length of first line is greater than that of second line");
-		else if (length1.compareTo(length2) < 0)
-			System.out.println("The length of first line is less than that of second line");
-		else
-			System.out.println("The length of first line is equal to lenth of second line");
+		/* Calling Method to calculate and compare the length of lines */
+		LineComparison Compare = new LineComparison();
+		double lengthOfLine1 = Compare.findLength(x1, x2, y1, y2);
+		System.out.println("The lenth of First Line is :" + lengthOfLine1);
+		double lengthOfLine2 = Compare.findLength(x3, x4, y3, y4);
+		System.out.println("The lenth second Line is :" + lengthOfLine2);
+		Compare.checkEquality(lengthOfLine1, lengthOfLine2);
 		sc.close();
 	}
 }
